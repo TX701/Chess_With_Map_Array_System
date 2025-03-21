@@ -113,7 +113,7 @@ public class Board {
     }
 
     // the move manager will already filter out if the end is occupied by a piece and if the start is null
-    // public String[] movePawn(String start, String end) {
+    // public String[] movePawn(String start) {
     //     Piece pawn = tileMap.get(start);
     //     String[] possible_moves = new String[9];
 
