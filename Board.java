@@ -20,6 +20,24 @@ public class Board {
         return String.valueOf((char) (val + 64));
     }
 
+    private String changeCol(String location, int difference) {
+        char currentCol = location.charAt(0);
+        int colVal = location.charAt(0);
+
+        if (64 < colVal + difference && colVal + difference < 73) {
+            return String.valueOf((char) (currentCol + difference)) + location.charAt(1);
+        }
+        return null;
+    }
+
+    private String changeRow(String location, int difference) {
+        int currentRow = Integer.parseInt(location.substring(1));
+        if (0 < currentRow + difference && currentRow + difference < 9) {
+            return location.substring(0, 1) + (currentRow + difference);
+        }
+        return null;
+    }
+
     public Board() {
         piece_manager.createPieces();
 
@@ -55,6 +73,7 @@ public class Board {
     }
 
     public void printBoard() {
+        System.out.println();
         for (int i = 0; i < board.length; i++) {
             System.out.print(8 - i + " ");
             for (int j = 0; j < board[i].length; j++) {
@@ -92,5 +111,20 @@ public class Board {
 
         return start + "->" + end;
     }
+
+    // the move manager will already filter out if the end is occupied by a piece and if the start is null
+    // public String[] movePawn(String start, String end) {
+    //     Piece pawn = tileMap.get(start);
+    //     String[] possible_moves = new String[9];
+
+    //     if (pawn.side == 0) {
+
+    //     } else {
+
+    //     }
+
+
+    //     return possible_moves;
+    // }
 
 }
